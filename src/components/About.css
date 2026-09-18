@@ -1,0 +1,660 @@
+/* =================================
+   ABOUT SECTION
+================================= */
+
+.about-section {
+  width: 100%;
+  padding: 110px 8%;
+  background: var(--bg-color);
+  transition: background 0.3s ease;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.55fr 0.75fr;
+  gap: 70px;
+
+  align-items: start;
+}
+
+
+/* =================================
+   LEFT CONTENT
+================================= */
+
+.about-content {
+  width: 100%;
+}
+
+
+/* =================================
+   TITLE
+================================= */
+
+.about-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 38px;
+}
+
+.about-number {
+  color: var(--primary-color);
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 9px;
+}
+
+.about-title-row h2 {
+  margin: 0;
+
+  color: var(--heading-color);
+
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+
+/* =================================
+   DESCRIPTION
+================================= */
+
+.about-content > p {
+  max-width: 720px;
+
+  margin: 0 0 25px;
+
+  color: var(--muted-color);
+
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+
+/* =================================
+   ABOUT DETAILS
+================================= */
+
+.about-details {
+  margin-top: 38px;
+
+  border-top: 1px solid var(--border-color);
+}
+
+.about-detail-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+
+  align-items: center;
+
+  min-height: 58px;
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+.about-detail-row span {
+  color: var(--primary-color);
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.about-detail-row p {
+  margin: 0;
+
+  color: var(--text-color);
+
+  font-size: 15px;
+}
+
+
+/* =================================
+   PROFILE CARD
+================================= */
+
+.about-profile-card {
+  width: 100%;
+
+  padding: 12px;
+
+  background: var(--surface-color);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 2px;
+
+  box-shadow: 0 15px 40px var(--shadow-color);
+
+  transition: 0.3s ease;
+}
+
+.about-profile-card:hover {
+  transform: translateY(-5px);
+}
+
+
+/* =================================
+   PROFILE IMAGE
+================================= */
+
+.about-profile-image {
+  width: 100%;
+  height: 370px;
+
+  overflow: hidden;
+
+  background: var(--surface-color);
+}
+
+.about-profile-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* =================================
+   PROFILE INFO
+================================= */
+
+.about-profile-info {
+  padding: 20px 10px 5px;
+}
+
+.about-profile-info h3 {
+  margin: 0 0 6px;
+
+  color: var(--heading-color);
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.about-profile-info p {
+  margin: 0;
+
+  color: var(--muted-color);
+
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+/* =================================
+   SOCIAL LINKS
+================================= */
+
+.about-social {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 18px 10px 10px;
+}
+
+.about-social a {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 50%;
+
+  background: var(--surface-color);
+
+  color: var(--heading-color);
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+.about-social a svg {
+  width: 19px;
+  height: 19px;
+}
+
+.about-social a:hover {
+  background: var(--primary-color);
+
+  border-color: var(--primary-color);
+
+  color: #ffffff;
+
+  transform: translateY(-4px);
+}
+
+
+/* =================================
+   WHY HIRE + CTA BOX
+================================= */
+
+.about-bottom-box {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+  gap: 30px;
+
+  margin-top: 42px;
+
+  padding: 25px;
+
+  background: var(--surface-color);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 16px;
+
+  box-shadow: 0 12px 35px var(--shadow-color);
+
+  transition: 0.3s ease;
+}
+
+.about-bottom-box:hover {
+  border-color: var(--primary-color);
+}
+
+
+/* =================================
+   WHY HIRE ME
+================================= */
+
+.why-hire {
+  min-width: 0;
+
+  padding-right: 30px;
+
+  border-right: 1px solid var(--border-color);
+}
+
+.why-hire-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+}
+
+.why-hire-icon {
+  width: 36px;
+  height: 36px;
+
+  min-width: 36px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: var(--primary-color);
+
+  color: #ffffff;
+
+  border-radius: 9px;
+}
+
+.why-hire-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.why-hire-title h3 {
+  margin: 0;
+
+  color: var(--heading-color);
+
+  font-size: 20px;
+
+  font-weight: 700;
+}
+
+
+/* =================================
+   WHY HIRE LIST
+================================= */
+
+.why-hire-list {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 15px 25px;
+}
+
+.why-hire-item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 9px;
+
+  min-width: 0;
+}
+
+.why-hire-item > span {
+  color: var(--primary-color);
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  line-height: 1.5;
+}
+
+.why-hire-item p {
+  margin: 0;
+
+  color: var(--text-color);
+
+  font-size: 15px;
+
+  line-height: 1.6;
+}
+
+
+/* =================================
+   PROJECT CTA
+================================= */
+
+.about-cta {
+  min-width: 0;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 15px;
+
+  padding-left: 0;
+}
+
+.cta-icon {
+  width: 38px;
+  height: 38px;
+
+  min-width: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: var(--primary-color);
+
+  color: #ffffff;
+
+  border-radius: 10px;
+}
+
+.cta-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.cta-content {
+  min-width: 0;
+}
+
+.cta-content h3 {
+  margin: 0 0 5px;
+
+  color: var(--heading-color);
+
+  font-size: 17px;
+
+  font-weight: 700;
+}
+
+.cta-content p {
+  margin: 0 0 18px;
+
+  color: var(--muted-color);
+
+  font-size: 13px;
+}
+
+
+/* =================================
+   CTA BUTTONS
+================================= */
+
+.cta-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  width: 100%;
+}
+
+.hire-btn,
+.message-btn {
+  min-height: 40px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 0 16px;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+
+  white-space: nowrap;
+}
+
+.hire-btn svg,
+.message-btn svg {
+  width: 15px;
+  height: 15px;
+
+  flex-shrink: 0;
+}
+
+
+/* =================================
+   HIRE BUTTON
+================================= */
+
+.hire-btn {
+  background: var(--primary-color);
+
+  color: #ffffff;
+
+  border: 1px solid var(--primary-color);
+
+  flex: 0 0 auto;
+}
+
+.hire-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+
+/* =================================
+   MESSAGE BUTTON
+================================= */
+
+.message-btn {
+  background: transparent;
+
+  color: var(--primary-color);
+
+  border: 1px solid var(--primary-color);
+
+  flex: 0 0 auto;
+}
+
+.message-btn:hover {
+  background: var(--primary-color);
+
+  color: #ffffff;
+
+  transform: translateY(-3px);
+}
+
+
+/* =================================
+   TABLET
+================================= */
+
+@media (max-width: 1000px) {
+
+  .about-container {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+
+  .about-profile-card {
+    max-width: 500px;
+
+    margin: 0 auto;
+  }
+
+  .about-bottom-box {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .why-hire {
+    padding-right: 0;
+
+    padding-bottom: 25px;
+
+    border-right: none;
+
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .about-cta {
+    padding-left: 0;
+
+    padding-top: 0;
+  }
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 600px) {
+
+  .about-section {
+    padding: 80px 6%;
+  }
+
+  .about-title-row {
+    gap: 12px;
+
+    margin-bottom: 30px;
+  }
+
+  .about-number {
+    font-size: 15px;
+  }
+
+  .about-title-row h2 {
+    font-size: 38px;
+  }
+
+  .about-content > p {
+    font-size: 14px;
+  }
+
+  .about-detail-row {
+    grid-template-columns: 90px 1fr;
+  }
+
+  .about-profile-image {
+    height: 330px;
+  }
+
+  .about-bottom-box {
+    padding: 20px;
+
+    gap: 25px;
+  }
+
+  .why-hire-list {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+  }
+
+  .about-cta {
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .cta-buttons {
+    width: 100%;
+
+    flex-wrap: wrap;
+  }
+
+  .hire-btn,
+  .message-btn {
+    min-height: 42px;
+  }
+}
+
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 400px) {
+
+  .about-title-row h2 {
+    font-size: 34px;
+  }
+
+  .about-bottom-box {
+    padding: 18px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .hire-btn,
+  .message-btn {
+    width: 100%;
+  }
+}

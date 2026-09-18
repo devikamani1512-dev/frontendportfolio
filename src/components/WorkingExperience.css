@@ -1,0 +1,278 @@
+/* =================================
+   EXPERIENCE SECTION
+================================= */
+
+.experience-section {
+  width: 100%;
+  padding: 110px 8%;
+  background: var(--bg-color);
+}
+
+/* =================================
+   HEADING
+================================= */
+
+.experience-heading {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 60px;
+}
+
+.experience-label {
+  display: inline-block;
+  margin-bottom: 12px;
+
+  color: var(--primary-color);
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.experience-heading h2 {
+  margin: 0 0 15px;
+
+  color: var(--heading-color);
+
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.experience-heading p {
+  margin: 0;
+
+  color: var(--text-color);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* =================================
+   EXPERIENCE CONTAINER
+================================= */
+
+.experience-container {
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 30px;
+}
+
+/* =================================
+   EXPERIENCE CARD
+================================= */
+
+.experience-card {
+  padding: 30px;
+
+  /* Theme based card background */
+  background: var(--surface-color);
+
+  /* Theme based border */
+  border: 3px solid var(--primary-color);
+
+  border-radius: 20px;
+
+  box-shadow: 0 15px 35px var(--shadow-color);
+
+  transition: 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-7px);
+
+  border-color: var(--primary-color);
+
+  box-shadow: 0 20px 40px var(--shadow-color);
+}
+
+/* =================================
+   EXPERIENCE ICON
+================================= */
+
+.experience-icon {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  background: var(--primary-color);
+
+  border-radius: 12px;
+
+  font-size: 26px;
+}
+
+/* =================================
+   EXPERIENCE CONTENT
+================================= */
+
+.experience-content h3 {
+  margin: 0 0 12px;
+
+  color: var(--heading-color);
+
+  font-size: 20px;
+  font-weight: 700;
+
+  line-height: 1.5;
+}
+
+.experience-content h4 {
+  margin: 0 0 12px;
+
+  color: var(--text-color);
+
+  font-size: 15px;
+  font-weight: 600;
+
+  line-height: 1.6;
+}
+
+/* =================================
+   LOCATION
+================================= */
+
+.experience-location {
+  margin: 0 0 10px;
+
+  color: var(--text-color);
+
+  font-size: 13px;
+}
+
+/* =================================
+   DURATION
+================================= */
+
+.experience-duration {
+  margin: 0 0 18px;
+
+  color: var(--muted-color);
+
+  font-size: 13px;
+}
+
+/* =================================
+   EXPERIENCE BADGE
+================================= */
+
+.experience-badge {
+  display: inline-block;
+
+  padding: 8px 13px;
+
+  border: 1px solid var(--primary-color);
+
+  border-radius: 7px;
+
+  color: var(--primary-color);
+
+  background: transparent;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =================================
+   EXPERIENCE IMAGE
+================================= */
+
+.experience-image {
+  width: 100%;
+  height: 180px;
+
+  margin-bottom: 25px;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+
+  border: 1px solid var(--border-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+}
+
+.experience-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+/* =================================
+   COMPANY LOGO
+================================= */
+
+.experience-image img {
+  object-fit: contain;
+}
+
+/* =================================
+   COLLEGE IMAGE
+================================= */
+
+.college-image img {
+  width: 100%;
+  height: 240%;
+
+  object-fit: cover;
+  object-position: top;
+
+  display: block;
+}
+
+/* =================================
+   TABLET
+================================= */
+
+@media (max-width: 800px) {
+  .experience-container {
+    grid-template-columns: 1fr;
+
+    max-width: 650px;
+  }
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 600px) {
+  .experience-section {
+    padding: 80px 5%;
+  }
+
+  .experience-heading {
+    margin-bottom: 45px;
+  }
+
+  .experience-heading h2 {
+    font-size: 30px;
+  }
+
+  .experience-heading p {
+    font-size: 14px;
+  }
+
+  .experience-card {
+    padding: 25px 20px;
+  }
+
+  .experience-image {
+    height: 180px;
+  }
+}
