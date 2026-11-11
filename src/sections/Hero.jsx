@@ -212,7 +212,7 @@ const Hero = () => {
             </h1>
 
             <h2>
-              Front End Developer
+              Python Backend & Gen AI Developer
             </h2>
 
             <p className="hero-description">
