@@ -212,13 +212,11 @@ const Hero = () => {
             </h1>
 
             <h2>
-              Python Backend & Gen AI Developer
+              Full Stack & Gen AI Developer
             </h2>
 
             <p className="hero-description">
-              Motivated and detail-oriented Frontend Developer transitioning
-              into Full Stack Development. I build responsive and user-friendly
-              web and mobile applications using modern frontend technologies.
+              Full Stack Developer who builds responsive React frontends and Python backends using Django, FastAPI and PostgreSQL. I create and deploy complete web applications, from REST APIs and authentication to clean, user-friendly interfaces, and I'm also exploring Gen AI to build smarter applications.
             </p>
 
 

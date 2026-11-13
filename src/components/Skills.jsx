@@ -12,19 +12,19 @@ const defaultSkills = [
       "Creating responsive, user-friendly and modern web and mobile interfaces using modern frontend technologies.",
     tags: ["HTML", "CSS", "JAVASCRIPT", "REACT", "REACT NATIVE", "TAILWIND CSS"],
   },
-  {
+    {
     title: "Backend Development",
     icon: "PY",
     description:
-      "Currently developing backend development skills using Python and learning how to build practical backend applications.",
+      "Building REST APIs with Django REST Framework and FastAPI, with JWT authentication and PostgreSQL databases.",
     tags: [
       "PYTHON",
-      "BACKEND",
-      "API",
-      "Django",
-      "Django Rest Framework",
-      "MY SQL",
-      "MongoDB",
+      "DJANGO",
+      "DJANGO REST FRAMEWORK",
+      "FASTAPI",
+      "REST API",
+      "JWT",
+      "POSTGRESQL",
     ],
   },
   {
@@ -64,8 +64,7 @@ const Skills = () => {
         <h2>My Expertise</h2>
 
         <p>
-          Building responsive digital experiences with modern frontend
-          technologies and developing my skills in Python backend development.
+          Building complete web applications with React, Python and PostgreSQL, from responsive interfaces to secure REST APIs.
         </p>
 
       </div>

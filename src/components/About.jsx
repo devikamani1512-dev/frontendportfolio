@@ -24,16 +24,11 @@ const About = () => {
           </div>
 
           <p>
-            I am a motivated and detail-oriented developer with a strong
-            interest in Full Stack Development and Generative AI. I enjoy
-            creating responsive, user-friendly and modern web applications
-            using frontend technologies.
+           I am a Full Stack Developer with a strong interest in Generative AI. I build responsive, user-friendly web applications with React on the frontend and Python, Django and FastAPI on the backend, with PostgreSQL for data storage.
           </p>
 
           <p>
-            I am continuously developing my skills in React, JavaScript,
-            Python and modern web technologies. I focus on building practical
-            digital solutions with clean design and a smooth user experience.
+            I enjoy taking an idea from design to deployment, building REST APIs, authentication and admin dashboards along with clean interfaces. I am continuously improving my skills in React, Python and modern web technologies to build practical digital solutions.
           </p>
 
           {/* ================================
@@ -43,12 +38,12 @@ const About = () => {
 
             <div className="about-detail-row">
               <span>Role</span>
-              <p>Gen AI Python Full Stack Developer</p>
+              <p>Full Stack & Gen AI Developer</p>
             </div>
 
             <div className="about-detail-row">
               <span>Focus</span>
-              <p>Frontend &amp; Full Stack Development</p>
+              <p>Full Stack Development & Generative AI</p>
             </div>
 
             <div className="about-detail-row">
@@ -110,15 +105,14 @@ const About = () => {
                 <div className="why-hire-item">
                   <span>✓</span>
                   <p>
-                    Frontend development with React and modern web
-                    technologies
+                    Full stack development with React, FastAPI and PostgreSQL
                   </p>
                 </div>
 
                 <div className="why-hire-item">
                   <span>✓</span>
                   <p>
-                    Currently developing Python Full Stack skills
+                    Built and deployed full stack apps with REST APIs
                   </p>
                 </div>
 

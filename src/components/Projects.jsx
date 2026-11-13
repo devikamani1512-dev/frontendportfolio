@@ -157,8 +157,7 @@ const Projects = () => {
         <h2>My Projects</h2>
 
         <p>
-          A showcase of my recent frontend projects and practical
-          development work.
+          A showcase of my full stack and frontend projects, built with React, Python and PostgreSQL.
         </p>
 
       </div>
