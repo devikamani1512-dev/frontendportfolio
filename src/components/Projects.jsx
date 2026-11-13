@@ -131,11 +131,11 @@ const Projects = () => {
       .then((data) => {
         if (Array.isArray(data) && data.length > 0) {
           setProjects(
-            data.map((project) => ({
-              ...project,
-              image: imageMap[project.image],
-            }))
-          );
+  data.map((project) => ({
+    ...project,
+    image: imageMap[project.image] || project.image,   // <- idha maathunga
+  }))
+);
         }
       })
       .catch((err) => console.error("Backend not reachable:", err));

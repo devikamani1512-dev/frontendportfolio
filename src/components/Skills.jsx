@@ -1,7 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Skills.css";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+
+// Default skills (backend respond pannala na idhu show aagum)
+const defaultSkills = [
+  {
+    title: "Frontend Development",
+    icon: "</>",
+    description:
+      "Creating responsive, user-friendly and modern web and mobile interfaces using modern frontend technologies.",
+    tags: ["HTML", "CSS", "JAVASCRIPT", "REACT", "REACT NATIVE", "TAILWIND CSS"],
+  },
+  {
+    title: "Backend Development",
+    icon: "PY",
+    description:
+      "Currently developing backend development skills using Python and learning how to build practical backend applications.",
+    tags: [
+      "PYTHON",
+      "BACKEND",
+      "API",
+      "Django",
+      "Django Rest Framework",
+      "MY SQL",
+      "MongoDB",
+    ],
+  },
+  {
+    title: "Tools & Technologies",
+    icon: "⚙",
+    description:
+      "Using modern development tools to build, manage and deploy web applications efficiently.",
+    tags: ["GITHUB", "VS CODE", "VERCEL", "RENDER"],
+  },
+];
+
 const Skills = () => {
+  const [skills, setSkills] = useState(defaultSkills);
+
+  // Backend la irundhu skills edukkudhu
+  useEffect(() => {
+    fetch(`${API_URL}/skills`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setSkills(data);
+        }
+      })
+      .catch((err) => console.error("Backend not reachable:", err));
+  }, []);
+
   return (
     <section className="skills-section" id="skills">
 
@@ -24,76 +73,25 @@ const Skills = () => {
       {/* SKILL CARDS */}
       <div className="skills-container">
 
-        {/* FRONTEND */}
-<div className="skill-card">
+        {skills.map((skill, index) => (
+          <div className="skill-card" key={skill.id || index}>
 
-  <div className="skill-icon">
-    &lt;/&gt;
-  </div>
+            <div className="skill-icon">
+              {skill.icon}
+            </div>
 
-  <h3>Frontend Development</h3>
+            <h3>{skill.title}</h3>
 
-  <p>
-    Creating responsive, user-friendly and modern web and mobile
-    interfaces using modern frontend technologies.
-  </p>
+            <p>{skill.description}</p>
 
-  <div className="skill-tags">
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>JAVASCRIPT</span>
-    <span>REACT</span>
-    <span>REACT NATIVE</span>
-    <span>TAILWIND CSS</span>
-  </div>
+            <div className="skill-tags">
+              {skill.tags.map((tag, tagIndex) => (
+                <span key={tagIndex}>{tag}</span>
+              ))}
+            </div>
 
-</div>
-
-
-{/* BACKEND */}
-<div className="skill-card">
-
-  <div className="skill-icon">
-    PY
-  </div>
-
-  <h3>Backend Development</h3>
-
-  <p>
-    Currently developing backend development skills using Python
-    and learning how to build practical backend applications.
-  </p>
-
-  <div className="skill-tags">
-    <span>PYTHON</span>
-    <span>BACKEND</span>
-    <span>API</span>
-  </div>
-
-</div>
-
-
-{/* TOOLS */}
-<div className="skill-card">
-
-  <div className="skill-icon">
-    ⚙
-  </div>
-
-  <h3>Tools & Technologies</h3>
-
-  <p>
-    Using modern development tools to build, manage and deploy
-    web applications efficiently.
-  </p>
-
-  <div className="skill-tags">
-    <span>GITHUB</span>
-    <span>VS CODE</span>
-    <span>VERCEL</span>
-  </div>
-
-</div>
+          </div>
+        ))}
 
       </div>
 

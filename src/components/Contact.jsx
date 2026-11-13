@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import "./Contact.css";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+
+const emptyForm = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+};
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(emptyForm);
 
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState("");
 
   // =========================
   // HANDLE INPUT CHANGE
@@ -28,6 +34,7 @@ const Contact = () => {
       [name]: "",
     }));
 
+    setSendError("");
     setSuccess(false);
   };
 
@@ -69,9 +76,9 @@ const Contact = () => {
   };
 
   // =========================
-  // SEND MESSAGE
+  // SEND MESSAGE (to backend)
   // =========================
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const validationErrors = validateForm();
@@ -84,48 +91,43 @@ const Contact = () => {
     }
 
     setErrors({});
+    setSendError("");
+    setSending(true);
 
-    // =========================
-    // GMAIL COMPOSE
-    // =========================
+    try {
+      const res = await fetch(`${API_URL}/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          subject: formData.subject.trim(),
+          message: formData.message.trim(),
+        }),
+      });
 
-    const gmailUrl =
-      "https://mail.google.com/mail/?view=cm&fs=1" +
-      "&to=" +
-      encodeURIComponent("devikamani1512@gmail.com") +
-      "&su=" +
-      encodeURIComponent(formData.subject.trim()) +
-      "&body=" +
-      encodeURIComponent(
-        `Hello Devika,
+      if (!res.ok) {
+        throw new Error("Failed to send");
+      }
 
-Name: ${formData.name.trim()}
-Email: ${formData.email.trim()}
+      // Show success message
+      setSuccess(true);
 
-Message:
-${formData.message.trim()}
+      // Clear form
+      setFormData(emptyForm);
 
-Thank you.`
+      // Hide success message after a while
+      setTimeout(() => {
+        setSuccess(false);
+      }, 50000);
+    } catch (err) {
+      console.error(err);
+      setSendError(
+        "Sorry, your message could not be sent right now. Please try again in a moment or email me directly at devikamani1512@gmail.com."
       );
+    }
 
-    // Open Gmail compose page
-    window.open(gmailUrl, "_blank");
-
-    // Show success message
-    setSuccess(true);
-
-    // Clear form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-
-    // Hide success message after 10 seconds
-    setTimeout(() => {
-      setSuccess(false);
-    }, 50000);
+    setSending(false);
   };
 
   return (
@@ -424,13 +426,24 @@ Thank you for your interest in my profile.
 
 
             {/* =========================
+                SEND ERROR
+            ========================== */}
+            {sendError && (
+              <span className="error-message">
+                {sendError}
+              </span>
+            )}
+
+
+            {/* =========================
                 SEND BUTTON
             ========================== */}
             <button
               type="submit"
               className="contact-button"
+              disabled={sending}
             >
-              Send Message →
+              {sending ? "Sending..." : "Send Message →"}
             </button>
 
           </form>
