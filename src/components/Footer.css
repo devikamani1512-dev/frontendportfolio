@@ -210,16 +210,18 @@
 }
 
 /* ================================
-   QUICK LINKS
+   QUICK LINKS (simple links, no boxes)
 ================================ */
 
 .footer-links {
   display: grid;
 
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, max-content);
 
-  column-gap: 10px;
-  row-gap: 10px;
+  column-gap: 40px;
+  row-gap: 12px;
+
+  align-content: start;
 
   min-width: 0;
 }
@@ -227,44 +229,26 @@
 .footer-links h3 {
   grid-column: 1 / -1;
 
-  margin: 0 0 12px;
+  margin: 0 0 8px;
 
   color: var(--heading-color);
   font-size: 18px;
   font-weight: 700;
 }
 
-/* Each Link Box */
+/* Each Link */
 
 .footer-links a {
-  width: 100%;
-  min-width: 0;
-
-  box-sizing: border-box;
-
-  padding: 8px 6px;
-
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-
   color: var(--text-color);
-  background: var(--surface-color);
 
   text-decoration: none;
 
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
-
-  text-align: center;
 
   cursor: pointer;
 
   transition: 0.3s ease;
-
-  /* Text stays inside the box */
-  white-space: normal;
-  overflow-wrap: break-word;
-  word-break: normal;
 }
 
 /* Hover */
@@ -272,11 +256,7 @@
 .footer-links a:hover {
   color: var(--primary-color);
 
-  border-color: var(--primary-color);
-
-  transform: translateY(-2px);
-
-  box-shadow: 0 5px 12px var(--shadow-color);
+  transform: translateX(4px);
 }
 
 /* Arrow */
@@ -297,17 +277,6 @@
 
 .footer-links a:hover::after {
   opacity: 1;
-}
-
-/* ================================
-   CURRENTLY BUILDING
-================================ */
-
-.footer-links a:last-child {
-  white-space: normal;
-  overflow-wrap: break-word;
-  word-break: normal;
-  line-height: 1.3;
 }
 
 /* ================================
@@ -487,29 +456,14 @@
   /* Quick Links */
 
   .footer-links {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
-    column-gap: 8px;
-    row-gap: 8px;
+    column-gap: 20px;
+    row-gap: 12px;
   }
 
   .footer-links a {
-    padding: 8px 4px;
-
-    font-size: 11px;
-
-    white-space: normal;
-    overflow-wrap: break-word;
-    word-break: normal;
-  }
-
-  /* Currently Building */
-
-  .footer-links a:last-child {
-    white-space: normal;
-    overflow-wrap: break-word;
-    word-break: normal;
-    line-height: 1.3;
+    font-size: 14px;
   }
 
   /* Footer Bottom */
@@ -536,15 +490,5 @@
 
   .footer-project-heading h2 {
     font-size: 25px;
-  }
-
-  .footer-links {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-links a:last-child {
-    white-space: normal;
-    overflow-wrap: break-word;
-    word-break: normal;
   }
 }

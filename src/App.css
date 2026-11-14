@@ -826,9 +826,15 @@ button {
 
 /* Right Side Profile Photo */
 .hero-image {
+  height: auto !important;
+  overflow: visible !important;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+}
+
+.hero-image .chat-box {
+  flex-shrink: 0;
 }
 
 .hero-image img {
@@ -838,6 +844,7 @@ button {
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
+
 /* Hover effect */
 .image-circle:hover {
   transform: scale(1.02);

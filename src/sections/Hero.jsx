@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import profilePhoto from "../assets/profilephoto.jpg";
 import introAudio from "../assets/devikaintro.mp3";
+import ChatBox from "../components/ChatBox";
 
 const Hero = () => {
   const audioRef = useRef(null);
@@ -216,7 +217,7 @@ const Hero = () => {
             </h2>
 
             <p className="hero-description">
-              Full Stack Developer who builds responsive React frontends and Python backends using Django, FastAPI and PostgreSQL. I create and deploy complete web applications, from REST APIs and authentication to clean, user-friendly interfaces, and I'm also exploring Gen AI to build smarter applications.
+             Full Stack Developer who builds responsive React frontends and Python backends using Django, FastAPI and PostgreSQL. I create and deploy complete web applications, from REST APIs and authentication to clean, user-friendly interfaces. I am also trained in Generative AI, including LLMs, RAG, machine learning and deep learning, and I am now applying it to build AI-powered applications.
             </p>
 
 
@@ -418,12 +419,14 @@ const Hero = () => {
               RIGHT SIDE PHOTO
           ================================= */}
 
-          <div className="hero-image">
+                    <div className="hero-image">
 
             <img
               src={profilePhoto}
               alt="Devika Manikandan"
             />
+
+            <ChatBox />
 
           </div>
 

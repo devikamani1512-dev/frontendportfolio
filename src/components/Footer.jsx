@@ -19,8 +19,8 @@ const Footer = () => {
           </h2>
 
           <p>
-            Frontend Developer building responsive and user-friendly
-            digital experiences.
+             Full Stack &amp; Gen AI Developer building responsive and user-friendly
+  digital experiences.
           </p>
 
         </div>
@@ -115,7 +115,7 @@ const Footer = () => {
         </p>
 
         <p>
-          Designed &amp; Built with React
+           Built with React, FastAPI &amp; PostgreSQL
         </p>
 
       </div>

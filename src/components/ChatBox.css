@@ -1,0 +1,41 @@
+.chat-box {
+  width: 100%;
+  max-width: 380px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--primary-color);
+  border-radius: 14px;
+  background: var(--surface-color);
+  color: inherit;
+}
+
+.chat-header { padding: 10px 14px; background: var(--primary-color); color: #fff; font-weight: 600; font-size: 14px; }
+
+.chat-body { height: 500px; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+
+.chat-msg { max-width: 88%; padding: 8px 12px; border-radius: 12px; font-size: 13px; line-height: 1.4; white-space: pre-wrap; }
+.chat-msg.bot { align-self: flex-start; background: rgba(128, 128, 128, 0.18); }
+.chat-msg.user { align-self: flex-end; background: var(--primary-color); color: #fff; }
+
+.chat-chips { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+.chat-chips button { text-align: left; padding: 7px 10px; border-radius: 8px; border: 1px solid var(--primary-color); background: transparent; color: var(--primary-color); font-size: 12px; cursor: pointer; }
+.chat-chips button:hover { background: var(--primary-color); color: #fff; }
+
+.chat-form { display: flex; gap: 8px; padding: 8px; border-top: 1px solid rgba(128, 128, 128, 0.3); }
+.chat-form input { flex: 1; min-width: 0; padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(128, 128, 128, 0.4); background: transparent; color: inherit; }
+.chat-form button { padding: 8px 14px; border: none; border-radius: 8px; background: var(--primary-color); color: #fff; cursor: pointer; }
+.chat-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+.hero-image .chat-box .chat-body {
+  height: 220px !important;
+  max-height: 220px !important;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) transparent;
+}
+.chat-header { display: flex; justify-content: space-between; align-items: center; }
+.chat-voice-toggle { background: transparent; border: none; cursor: pointer; font-size: 16px; }
+
+.chat-form .chat-mic { padding: 8px 10px; background: transparent; border: 1px solid var(--primary-color); }
+.chat-form .chat-mic.on { background: var(--primary-color); animation: chatPulse 1s infinite; }
+@keyframes chatPulse { 50% { opacity: 0.5; } }

@@ -24,7 +24,7 @@ const About = () => {
           </div>
 
           <p>
-           I am a Full Stack Developer with a strong interest in Generative AI. I build responsive, user-friendly web applications with React on the frontend and Python, Django and FastAPI on the backend, with PostgreSQL for data storage.
+           I am a Full Stack Developer trained in Generative AI. I build responsive, user-friendly web applications with React on the frontend and Python, Django and FastAPI on the backend, with PostgreSQL for data storage.
           </p>
 
           <p>

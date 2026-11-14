@@ -427,7 +427,150 @@ const MessagesViewer = ({ authFetch, notify }) => {
     </div>
   );
 };
+/* =====================================================
+   EXPERIENCE TAB
+===================================================== */
 
+const emptyExp = {
+  role: "",
+  company: "",
+  location: "",
+  duration: "",
+  experience: "",
+  image: "",
+  type: "company",
+};
+
+const ExperienceManager = ({ authFetch, notify }) => {
+  const [items, setItems] = useState([]);
+  const [form, setForm] = useState(emptyExp);
+  const [editingId, setEditingId] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const load = async () => {
+    try {
+      const res = await fetch(`${API_URL}/experience`);
+      setItems(await res.json());
+    } catch (err) {
+      notify("Experience load aagala.");
+    }
+  };
+
+  useEffect(() => {
+    load();
+  }, []);
+
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    notify("");
+
+    const payload = Object.fromEntries(
+      Object.keys(emptyExp).map((k) => [k, (form[k] || "").trim()])
+    );
+
+    try {
+      const res = await authFetch(
+        editingId ? `/experience/${editingId}` : "/experience",
+        { method: editingId ? "PUT" : "POST", body: JSON.stringify(payload) }
+      );
+
+      if (res.ok) {
+        notify(editingId ? "Experience update aayiduchu." : "Experience add aayiduchu.");
+        setForm(emptyExp);
+        setEditingId(null);
+        await load();
+      } else {
+        notify("Save aagala. Ellam fields um correct ah irukka nu paarunga.");
+      }
+    } catch (err) {
+      // 401 already handled
+    }
+    setLoading(false);
+  };
+
+  const handleEdit = (x) => {
+    setEditingId(x.id);
+    setForm(Object.fromEntries(Object.keys(emptyExp).map((k) => [k, x[k] || emptyExp[k]])));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleCancel = () => {
+    setEditingId(null);
+    setForm(emptyExp);
+  };
+
+  const handleDelete = async (x) => {
+    if (!window.confirm(`"${x.role}" delete pannanuma?`)) return;
+    try {
+      const res = await authFetch(`/experience/${x.id}`, { method: "DELETE" });
+      if (res.ok) {
+        notify("Experience delete aayiduchu.");
+        await load();
+      } else {
+        notify("Delete aagala.");
+      }
+    } catch (err) {
+      // 401 already handled
+    }
+  };
+
+  return (
+    <>
+      <form className="admin-form" onSubmit={handleSubmit}>
+        <h3>{editingId ? "Edit Experience" : "Add New Experience"}</h3>
+
+        <input name="role" placeholder="Role (e.g. Full Stack Developer)" value={form.role} onChange={handleChange} required />
+        <input name="company" placeholder="Company / Institution" value={form.company} onChange={handleChange} required />
+        <input name="location" placeholder="Location (e.g. Rajapalayam)" value={form.location} onChange={handleChange} />
+        <input name="duration" placeholder="Duration (e.g. 01 June 2022 - 07 August 2026)" value={form.duration} onChange={handleChange} required />
+        <input name="experience" placeholder="Badge (e.g. 4 Years)" value={form.experience} onChange={handleChange} />
+        <input name="image" placeholder="Image: key (srijayajothi / college) or URL (optional)" value={form.image} onChange={handleChange} />
+
+        <select name="type" value={form.type} onChange={handleChange}>
+          <option value="company">Company</option>
+          <option value="college">College</option>
+        </select>
+
+        <div className="admin-form-buttons">
+          <button type="submit" disabled={loading}>
+            {loading ? "Saving..." : editingId ? "Update Experience" : "Add Experience"}
+          </button>
+          {editingId && (
+            <button type="button" className="admin-cancel" onClick={handleCancel}>
+              Cancel
+            </button>
+          )}
+        </div>
+      </form>
+
+      <div className="admin-list">
+        <h3>All Experience ({items.length})</h3>
+
+        {items.map((x) => (
+          <div className="admin-item" key={x.id}>
+            <div>
+              <strong>{x.role}</strong>
+              <small>
+                {x.company} · {x.duration}
+              </small>
+            </div>
+
+            <div className="admin-item-buttons">
+              <button onClick={() => handleEdit(x)}>Edit</button>
+              <button className="admin-delete" onClick={() => handleDelete(x)}>
+                Delete
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
 /* =====================================================
    ADMIN (LOGIN + TABS)
 ===================================================== */
@@ -554,6 +697,7 @@ const Admin = () => {
           {[
             ["projects", "Projects"],
             ["skills", "Skills"],
+            ["experience", "Experience"],
             ["messages", "Messages"],
           ].map(([key, label]) => (
             <button
@@ -573,6 +717,9 @@ const Admin = () => {
         )}
         {tab === "skills" && (
           <SkillsManager authFetch={authFetch} notify={setMessage} />
+        )}
+                {tab === "experience" && (
+          <ExperienceManager authFetch={authFetch} notify={setMessage} />
         )}
         {tab === "messages" && (
           <MessagesViewer authFetch={authFetch} notify={setMessage} />
